@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     user: process.env.POSTGRES_USER || 'postgres',
     host: 'localhost',
     database: 'postgres',
-    password: process.env.POSTGRES_PWD,
+    password: process.env.POSTGRES_PWD || '',
     port: 5432,
   });
 
@@ -29,6 +29,7 @@ const server = http.createServer((req, res) => {
     pool.end()
 
     res.setHeader('Content-Type', 'text/html; charset=UTF-8');
+    res.setHeader('Cache-Control', 'max-age=0');
     res.end(`<html>${body}</html>`);
   });
 });
