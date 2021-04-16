@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
   let body = 'Hello World';
 
   const pool = new Pool({
-    user: 'postgres',
+    user: process.env.POSTGRES_USER || 'postgres',
     host: 'localhost',
     database: 'postgres',
     password: process.env.POSTGRES_PWD,
