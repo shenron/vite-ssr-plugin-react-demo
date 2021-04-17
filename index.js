@@ -1,10 +1,9 @@
-import http from 'http';
-import pkg from 'pg';
+const http = require('http');
+const pkg = require('pg');
 
-const { Pool, Client } = pkg;
+const { Pool } = pkg;
 const hostname = '127.0.0.1';
 const port = 8080;
-
 
 // set POSTGRES_PWD as env variable
 const server = http.createServer((req, res) => {
