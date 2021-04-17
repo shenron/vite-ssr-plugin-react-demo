@@ -9,8 +9,8 @@
   "scripts": {
     "prestart": "npm run build",
     "start": "POSTGRES_PWD=$POSTGRES_PWD POSTGRES_USER=hosting-db node ./back/index",
-    "dev": "vite --port 1337 --open --force",
-    "dev:ssr": "vite-ssr --port 1337 --open --force",
+    "dev": "POSTGRES_PWD=$POSTGRES_PWD vite --port 1337 --open --force",
+    "dev:ssr": "POSTGRES_PWD=$POSTGRES_PWD vite-ssr --port 1337 --open --force",
     "build": "vite-ssr build",
     "serve:node": "POSTGRES_PWD=$POSTGRES_PWD node ./back/index"
   },
