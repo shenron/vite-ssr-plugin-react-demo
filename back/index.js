@@ -40,6 +40,7 @@ server.get('*', async (req, res) => {
     preload: true,
   })
 
+  res.setHeader('Cache-Control', 'max-age=0');
   res.end(html)
 })
 

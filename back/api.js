@@ -27,6 +27,7 @@ module.exports = [
         body.props = url.searchParams.toString()
         body.routeName = url.searchParams.get('name') || ''
 
+        res.setHeader('Cache-Control', 'max-age=0');
         res.end(JSON.stringify({ body }))
         pool.end()
       });
