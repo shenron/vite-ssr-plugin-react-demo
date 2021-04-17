@@ -7,7 +7,8 @@
   "main": "./back/index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "npm run build && POSTGRES_PWD=$POSTGRES_PWD POSTGRES_USER=hosting-db node ./back/index",
+    "prestart": "npm run build",
+    "start": "POSTGRES_PWD=$POSTGRES_PWD POSTGRES_USER=hosting-db node ./back/index",
     "dev": "vite --port 1337 --open --force",
     "dev:ssr": "vite-ssr --port 1337 --open --force",
     "build": "vite-ssr build",
