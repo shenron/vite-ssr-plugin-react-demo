@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "main": "index.js",
+  "main": "./back/index.js",
   "type": "commonjs",
   "scripts": {
     "start": "npm run build && POSTGRES_PWD=$POSTGRES_PWD POSTGRES_USER=hosting-db node ./back/index",
