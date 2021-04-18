@@ -4,7 +4,7 @@ import style from './About.module.scss'
 
 export default function About(props) {
   const isRed = true
-  const isBold = false
+  const isBold = true
 
   const testClass = classNames(style.test, {
     [style.red]: isRed,
