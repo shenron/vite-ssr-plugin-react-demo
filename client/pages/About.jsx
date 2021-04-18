@@ -8,12 +8,15 @@ export default function About(props) {
 
   const testClass = classNames(style.test, {
     [style.red]: isRed,
-    [style.bold]: isBold
+    [style.bold]: isBold,
   })
 
   return (
     <>
-      <h1><span className={testClass}>red</span> About</h1>
+      <h1>
+        <span className={testClass}>red</span>
+        <span className={`${style.test} ${style.pink}`}>pink</span>
+        About</h1>
       <p>{JSON.stringify(props, null, 2)}</p>
     </>
   )
