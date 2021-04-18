@@ -14,7 +14,7 @@ export default function About(props) {
   return (
     <>
       <h1>
-        <span className={testClass}>red</span>
+        <span className={testClass}>red bold</span>
         <span className={`${style.test} ${style.pink}`}>pink</span>
         About</h1>
       <p>{JSON.stringify(props, null, 2)}</p>
