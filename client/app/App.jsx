@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import React, { useState } from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import logo from '../assets/logo.svg'
