@@ -1,13 +1,16 @@
 import React from 'react'
 import classNames from 'classnames'
-import styles from './About.scss'
+import './About.scss'
 
 export default function About(props) {
 
-  const testClass = classNames(styles['test'], {
-    [styles['red']]: true,
-    [styles['bold']]: false
-  });
+  const isRed = true
+  const isBold = false
+
+  const testClass = classNames('test', {
+    ['red']: isRed,
+    ['bold']: isBold
+  })
 
   return (
     <>
