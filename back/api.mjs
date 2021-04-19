@@ -1,9 +1,9 @@
 // Example API
-const pkg = require('pg');
+import pg from 'pg';
 
-const { Pool } = pkg;
+const { Pool } = pg;
 
-module.exports = [
+export default [
   {
     route: '/api/getProps',
     handler(req, res) {
@@ -18,7 +18,7 @@ module.exports = [
 
       pool.query('SELECT NOW()', (err, dbRes) => {
         if (err) {
-          body.error = 'not possible to connect to pg';
+          body.error = `not possible to connect to pg: ${err}`;
         } else {
           body.res = `output from bd: ${dbRes.rows[0].now}`;
         }

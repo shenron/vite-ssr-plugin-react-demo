@@ -1,2 +1,8 @@
-## BD Docker
-> docker run --name jerome-postgres -p 5432:5432 -e POSTGRES_PASSWORD=apassword postgres
+## start BD Docker
+> docker-compose up
+
+## start dev ssr
+> npm run dev:ssr
+
+## build/start as production
+> npm run build && npm run start

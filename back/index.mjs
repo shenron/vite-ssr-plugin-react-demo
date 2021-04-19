@@ -1,24 +1,30 @@
 // This is a simple Node server that uses the built project.
 
-global.fetch = require('node-fetch')
-const path = require('path')
-const express = require('express')
+import { fileURLToPath } from 'url';
+import fetch from 'node-fetch'
+import path  from 'path'
+import express from 'express'
 
 // This contains a list of static routes (assets)
-const  { ssr: index } = require('../dist/server/package.json')
+import packageJon from '../dist/server/package.json'
 
 // The manifest is required for preloading assets
-const manifest = require('../dist/client/ssr-manifest.json')
+import manifest from '../dist/client/ssr-manifest.json'
+
+import api from './api.mjs'
+
+global.fetch = fetch
 
 // This is the server renderer we just built
-const { default: renderPage } = require('../dist//server')
-
-const api = require('./api')
+const main = import('../dist/server/main.js')
 
 const server = express()
 
+//we need to change up how __dirname is used for ES6 purposes
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 // Serve every static asset route
-for (const asset of index.assets || []) {
+for (const asset of packageJon.ssr.assets || []) {
   server.use(
     '/' + asset,
     express.static(path.join(__dirname, '../dist/client/' + asset))
@@ -32,9 +38,8 @@ api.forEach(({ route, handler }) => server.get(route, handler))
 // Everything else is treated as a "rendering request"
 server.get('*', async (req, res) => {
   const url = req.protocol + '://' + req.get('host') + req.originalUrl
+  const renderPage = (await main).default.default
 
-// This is the server renderer we just built
-  // const renderPage = import('../dist/server/main')
   const { html } = await renderPage(url, {
     manifest,
     preload: true,
