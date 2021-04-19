@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import viteSSR from 'vite-ssr/plugin.js'
-import reactRefresh from '@vitejs/plugin-react-refresh'
-import api from './back/api.mjs'
+import { defineConfig } from 'vite';
+import viteSSR from 'vite-ssr/plugin.js';
+import reactRefresh from '@vitejs/plugin-react-refresh';
+import api from './back/api.mjs';
 
 export default defineConfig({
   entry: 'client/main',
@@ -11,9 +11,8 @@ export default defineConfig({
     {
       // Mock API during development
       configureServer({ middlewares }) {
-        api.forEach(({ route, handler }) => middlewares.use(route, handler))
+        api.forEach(({ route, handler }) => middlewares.use(route, handler));
       },
     },
   ],
-})
-
+});
