@@ -33,7 +33,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Custom API to get data for each page
 // See client/main.js to see how this is called
-api.forEach(({ route, handler }) => server.get(route, handler));
+api.forEach(({ method = 'get', route, handler }) => server[method](route, handler));
 
 // Everything else is treated as a "rendering request"
 server.get('*', async (req, res) => {
