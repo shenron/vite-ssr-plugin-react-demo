@@ -6,14 +6,21 @@ const { Pool } = pg;
 
 // Construct a schema, using GraphQL schema language
 const schema = buildSchema(`
+  type Hello {
+    answer: String!
+    otherAnswer: String!
+  }
   type Query {
-    hello (msg: String!): String!
+    hello (msg: String!): Hello!
   }
 `);
 
 // The root provides a resolver function for each API endpoint
 const root = {
-  hello: ({ msg }) => `Hello world! ${msg}`,
+  hello: ({ msg }) => ({
+    answer: `Hello world! ${msg}`,
+    otherAnswer: 'something else',
+  }),
 };
 
 export default [

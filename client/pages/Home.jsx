@@ -11,13 +11,13 @@ export default function Home(props) {
   const getHello = () => client
     .query({
       query: gql`query Hello ($msg: String!) {
-        hello (msg: $msg)
+        hello (msg: $msg) { answer }
       }`,
       variables: {
         msg: 'toto',
       },
     })
-    .then(({ data }) => alert(data.hello))
+    .then(({ data }) => alert(data.hello.answer))
     .catch((err) => console.error(err));
 
   return (
