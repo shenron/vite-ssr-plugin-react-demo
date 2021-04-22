@@ -2,7 +2,7 @@ import './App.scss';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import { ClientOnly } from 'vite-ssr/react';
+import { ClientOnly } from 'vite-ssr'; // eslint-disable-line import/no-unresolved
 import logo from '../assets/logo.svg';
 
 const App = ({ isClient, url, router }) => {
@@ -14,6 +14,7 @@ const App = ({ isClient, url, router }) => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello ViteSSR + React!</p>
+        <p className="text-purple-600">And Tailwinds</p>
         <p>
           <button type="submit" onClick={() => setCount((c) => c + 1)}>
             count is:
