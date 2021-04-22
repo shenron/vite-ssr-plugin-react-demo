@@ -29,16 +29,19 @@
     "react-helmet-async": "^1.0.9",
     "react-router-dom": "^5.2.0",
     "sass": "^1.32.11",
-    "vite": "^2.2.0",
+    "tailwindcss": "^2.1.1",
+    "vite": "^2.2.1",
     "vite-ssr": "^0.8.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.2.5",
     "eslint": "^7.24.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^6.0.0"
+    "husky": "^6.0.0",
+    "postcss": "^8.2.12"
   }
 }
