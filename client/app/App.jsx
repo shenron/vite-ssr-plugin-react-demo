@@ -1,9 +1,9 @@
-import './App.scss';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import { ClientOnly } from 'vite-ssr'; // eslint-disable-line import/no-unresolved
+import { ClientOnly } from 'vite-ssr';
 import logo from '../assets/logo.svg';
+import './App.scss';
 
 const App = ({ isClient, url, router }) => {
   const baseUrl = isClient ? '' : url.origin;

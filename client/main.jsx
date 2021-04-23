@@ -1,4 +1,4 @@
-import viteSSR from 'vite-ssr'; // eslint-disable-line import/no-unresolved
+import viteSSR from 'vite-ssr';
 import App from './app/App';
 import routes from './routes';
 import './index.css';
