@@ -21,5 +21,6 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/jsx-props-no-spreading': 0,
     'no-param-reassign': 0,
+    'func-names': 0,
   }
 }
