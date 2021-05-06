@@ -18,7 +18,7 @@ const schema = buildSchema(`
 // The root provides a resolver function for each API endpoint
 const root = {
   hello: ({ msg }) => ({
-    answer: `Grahql Server: Hello world! ${msg}`,
+    answer: `Graphql Server: Hello world! ${msg}`,
     otherAnswer: 'something else',
   }),
 };

@@ -1,17 +1,32 @@
 import PropTypes from 'prop-types';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import {
+  ApolloClient,
+  ApolloProvider,
+  createHttpLink,
+  InMemoryCache,
+} from '@apollo/client';
 import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import { ClientOnly } from 'vite-ssr';
 import logo from '../assets/logo.svg';
 import './App.scss';
 
-const client = new ApolloClient({
-  uri: '/graph',
-  cache: new InMemoryCache(),
-});
+const App = ({
+  isClient,
+  url,
+  router,
+  initialState,
+}) => {
+  const client = new ApolloClient({
+    link: createHttpLink({
+      uri: `${isClient ? '' : 'http://localhost:8080'}/graph`,
+      credentials: 'same-origin',
+    }),
+    ssrMode: !isClient,
+    cache: initialState?.apolloCache || new InMemoryCache(),
+    credentials: 'same-origin',
+  });
 
-const App = ({ isClient, url, router }) => {
   const baseUrl = isClient ? '' : url.origin;
   const [count, setCount] = useState(0);
 
@@ -40,6 +55,7 @@ const App = ({ isClient, url, router }) => {
             </ul>
           </nav>
         </header>
+
         <Switch>
           {router.routes.map((route) => (
             <Route key={route.path} path={route.path}>
@@ -60,6 +76,7 @@ App.propTypes = {
   isClient: PropTypes.bool.isRequired,
   url: PropTypes.object.isRequired,
   router: PropTypes.any.isRequired,
+  initialState: PropTypes.any.isRequired,
 };
 
 export default App;
