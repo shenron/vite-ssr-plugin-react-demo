@@ -5,4 +5,4 @@
 > npm run dev:ssr
 
 ## build/start as production
-> npm run build && npm run start
+> npm run build && npm start
