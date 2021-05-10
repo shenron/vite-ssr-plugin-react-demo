@@ -6,18 +6,19 @@ import './index.css';
 
 export default viteSSR(App, {
   routes,
-  transformState(state) {
+  transformState(state, defaultTransformer) {
     if (import.meta.env.SSR) {
-      // Serialize
       state.apolloCache = state.apolloCache.extract();
-      return JSON.stringify(JSON.stringify(state));
     }
-    // Deserialize
-    state = JSON.parse(state);
-    state.apolloCache = new InMemoryCache().restore(JSON.parse(state.apolloCache));
-    return state;
+
+    return defaultTransformer(state);
   },
   // eslint-disable-next-line no-unused-vars
-}, (ctx) => {
+}, ({ initialState }) => {
   // Custom initialization hook
+  if (import.meta.env.SSR) {
+    initialState.apolloCache = new InMemoryCache();
+  } else {
+    initialState.apolloCache = new InMemoryCache().restore(initialState.apolloCache);
+  }
 });
