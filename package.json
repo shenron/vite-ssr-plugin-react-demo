@@ -31,11 +31,11 @@
     "sass": "^1.32.12",
     "tailwindcss": "^2.1.2",
     "vite": "^2.2.4",
-    "vite-ssr": "^0.8.0"
+    "vite-ssr": "^0.8.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
