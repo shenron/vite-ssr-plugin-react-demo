@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useGraphql from '../compositions/useGraphql';
 
-export default function Home(props) {
+export default function Home() {
   const { getGraphHello } = useGraphql();
 
   return (
@@ -16,8 +16,6 @@ export default function Home(props) {
       </Helmet>
 
       <h1>Home</h1>
-      <p>{JSON.stringify(props, null, 2)}</p>
-
     </>
   );
 }
