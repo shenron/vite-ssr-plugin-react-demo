@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import fetch from 'node-fetch';
 import path from 'path';
 import express from 'express';
-import { InMemoryCache } from '@apollo/client';
 
 // This contains a list of static routes (assets)
 import packageJon from '../dist/server/package.json';
@@ -41,11 +40,9 @@ server.get('*', async (req, res) => {
   const url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
   const renderPage = (await main).default.default;
 
-  const apolloCache = new InMemoryCache();
-
   const { html } = await renderPage(url, {
     manifest,
-    initialState: { apolloCache },
+    initialState: { },
     preload: true,
   });
 
