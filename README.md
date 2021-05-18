@@ -1,3 +1,6 @@
+Project created to try to resolve
+https://github.com/frandiox/vite-ssr/issues/22
+
 ## start BD Docker
 > docker-compose up
 

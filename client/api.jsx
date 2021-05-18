@@ -22,6 +22,7 @@ const PropsProvider = ({ baseUrl, route, children: Page }) => {
     });
   }
 
+  console.log(route.meta.state);
   return <Page {...route.meta.state} />;
 };
 

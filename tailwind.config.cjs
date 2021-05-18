@@ -1,6 +1,6 @@
 module.exports = {
   purge: [
-    './dist/**/*.js',
+    './client/**/*.jsx',
   ],
   theme: {},
   variants: {},

@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import style from './About.module.scss';
 
-export default function About(props) {
+function About({ body } = {}) {
   const isRed = true;
   const isBold = true;
 
@@ -16,9 +17,19 @@ export default function About(props) {
       <h1>
         <span className={testClass}>red bold</span>
         <span className={`${style.test} ${style.pink}`}>pink</span>
-        About
+        <p>
+          About
+          <br />
+          {' '}
+          {body.res}
+        </p>
       </h1>
-      <p>{JSON.stringify(props, null, 2)}</p>
     </>
   );
 }
+
+About.propTypes = {
+  body: PropTypes.object.isRequired,
+};
+
+export default About;
